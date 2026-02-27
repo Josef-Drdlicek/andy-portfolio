@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrea Drdlíčková Damašková – Portfolio</title>
+  <meta name="description" content="Portfolio Andrey Drdlíčkové Damaškové. 12 let praxe s informačními systémy, uživatelským testováním a procesní optimalizací. Na cestě do UX a service designu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-bg: #FAFAF7;
+      --color-bg-alt: #F0EFEB;
+      --color-text: #1A1A1A;
+      --color-text-muted: #5A5A5A;
+      --color-accent: #4A6FA5;
+      --color-accent-light: #E8EEF6;
+      --color-border: #E0DED8;
+      --color-white: #FFFFFF;
+      --color-highlight: #D4A853;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --max-width: 1080px;
+      --nav-height: 64px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height);
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--color-text);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===================== NAV ===================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(250, 250, 247, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      transition: box-shadow 0.3s;
+    }
+
+    .nav.scrolled {
+      box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .nav-brand {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-text);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      position: relative;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--color-text);
+    }
+
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-text);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      padding: 160px 0 100px;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero .container {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-subtitle {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--color-text);
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-muted);
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+
+    .hero-location svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--color-accent);
+    }
+
+    .hero-photo-wrap {
+      flex-shrink: 0;
+    }
+
+    .hero-photo {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      border: 4px solid var(--color-white);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ===================== SECTIONS ===================== */
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-alt {
+      background-color: var(--color-bg-alt);
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-intro {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      max-width: 640px;
+      margin-bottom: 56px;
+      line-height: 1.8;
+    }
+
+    /* ===================== CASE STUDIES ===================== */
+    .cases-grid {
+      display: grid;
+      gap: 32px;
+    }
+
+    .case-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .case-card:hover {
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .case-card.featured {
+      border: 2px solid var(--color-accent);
+    }
+
+    .case-header {
+      padding: 32px 32px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .case-header-content {
+      flex: 1;
+    }
+
+    .case-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .case-badge.featured-badge {
+      background: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .case-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .case-meta {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+    }
+
+    .case-summary {
+      padding: 0 32px 24px;
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .case-toggle {
+      display: flex;
+      align-items: center;
+      padding-top: 4px;
+    }
+
+    .case-toggle svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--color-text-muted);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .case-card.expanded .case-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    .case-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .case-detail-inner {
+      padding: 0 32px 32px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .case-detail-inner h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-accent);
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    .case-detail-inner p,
+    .case-detail-inner ul {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .case-detail-inner ul {
+      padding-left: 20px;
+    }
+
+    .case-detail-inner li {
+      margin-bottom: 4px;
+    }
+
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .case-tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--color-bg);
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+    }
+
+    .relevance-box {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: var(--color-accent-light);
+      border-radius: 8px;
+      border-left: 3px solid var(--color-accent);
+    }
+
+    .relevance-box p {
+      font-size: 0.9rem;
+      color: var(--color-accent);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* ===================== TIMELINE ===================== */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--color-border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 40px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-white);
+      border: 3px solid var(--color-accent);
+    }
+
+    .timeline-item.current .timeline-dot {
+      background: var(--color-accent);
+      box-shadow: 0 0 0 4px var(--color-accent-light);
+    }
+
+    .timeline-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .timeline-place {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin-bottom: 8px;
+    }
+
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .status-badge.done {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .status-badge.active {
+      background: #FFF3E0;
+      color: #E65100;
+    }
+
+    /* ===================== TOOLS ===================== */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+
+    .tool-category {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .tool-category-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--color-accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .tool-category-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--color-accent);
+    }
+
+    .tool-category h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .tool-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tool-pill {
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: var(--color-bg);
+      color: var(--color-text-muted);
+      border: 1px solid var(--color-border);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .tool-pill:hover {
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+    }
+
+    /* ===================== CONTACT ===================== */
+    .contact-section {
+      text-align: center;
+      padding: 100px 0 120px;
+    }
+
+    .contact-section .section-title {
+      margin-bottom: 16px;
+    }
+
+    .contact-section .section-intro {
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border: 2px solid var(--color-border);
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--color-text);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .contact-link:hover {
+      border-color: var(--color-accent);
+      background: var(--color-accent-light);
+      color: var(--color-accent);
+    }
+
+    .contact-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    /* ===================== FADE IN ===================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===================== MOBILE ===================== */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--color-bg);
+        flex-direction: column;
+        padding: 100px 32px 32px;
+        gap: 24px;
+        border-left: 1px solid var(--color-border);
+        transition: right 0.3s ease;
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-links.open {
+        right: 0;
+      }
+
+      .nav-links a {
+        font-size: 1rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero {
+        padding: 120px 0 64px;
+        min-height: auto;
+      }
+
+      .hero .container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 32px;
+      }
+
+      .hero-description {
+        margin: 0 auto 24px;
+      }
+
+      .hero-photo {
+        width: 180px;
+        height: 180px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .case-header {
+        padding: 24px 24px 0;
+      }
+
+      .case-summary {
+        padding: 0 24px 20px;
+      }
+
+      .case-detail-inner {
+        padding: 0 24px 24px;
+      }
+
+      .case-title {
+        font-size: 1.1rem;
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-section {
+        padding: 64px 0 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .mobile-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Hlavní navigace">
+    <div class="container">
+      <a href="#hero" class="nav-brand" aria-label="Domů">Andrejka</a>
+      <ul class="nav-links" role="list">
+        <li><a href="#about">O mně</a></li>
+        <li><a href="#projects">Projekty</a></li>
+        <li><a href="#education">Vzdělání</a></li>
+        <li><a href="#tools">Nástroje</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Otevřít menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-overlay"></div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-text fade-in">
+        <p class="hero-subtitle">Portfolio</p>
+        <h1 class="hero-title">Andrea Drdlíčková Damašková</h1>
+        <p class="hero-description">
+          Na přechodu z klientské podpory do UX a&nbsp;service designu. 12&nbsp;let praxe s&nbsp;informačními systémy, uživatelským testováním a&nbsp;procesní optimalizací. Aktivně studuji HTML/CSS, Figmu a&nbsp;Adobe&nbsp;CC.
+        </p>
+        <span class="hero-location">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+          Brno, Česko
+        </span>
+      </div>
+      <div class="hero-photo-wrap fade-in">
+        <img
+          src="Profilová fotka 3.jpg"
+          alt="Portrétní fotografie Andrey Drdlíčkové Damaškové"
+          class="hero-photo"
+          width="280"
+          height="280"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- O MNĚ (anchor) -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">O mně</p>
+        <h2 class="section-title">Od uživatele systémů k&nbsp;jejich designérce</h2>
+        <p class="section-intro">
+          Dvanáct let jsem pracovala na straně uživatele – zákazník volal, psal nebo přicházel se stížností na systém, a já jsem hledala cestu, jak mu pomoct. Viděla jsem, co se stane, když je informace špatně strukturovaná, formulář neintuitivní nebo proces navržený pro firmu, ne pro člověka. Tato zkušenost mě přivedla k&nbsp;rozhodnutí: chci přejít na druhou stranu a&nbsp;systémy navrhovat lépe.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKTY -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Případové studie</p>
+        <h2 class="section-title">Projekty z&nbsp;praxe</h2>
+        <p class="section-intro">
+          Každý projekt propojuje moji profesní zkušenost s&nbsp;designovým myšlením – od identifikace problému přes návrh řešení až po implementaci.
+        </p>
+      </div>
+
+      <div class="cases-grid">
+
+        <!-- CASE 1: Brandbook -->
+        <article class="case-card featured fade-in">
+          <div class="case-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="case-header-content">
+              <span class="case-badge featured-badge">Hlavní projekt</span>
+              <h3 class="case-title">Brandbook pro zapniweb.cz</h3>
+              <p class="case-meta">Závěrečný projekt kurzu Art Grafik · 2023–2024</p>
+            </div>
+            <div class="case-toggle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+            </div>
+          </div>
+          <p class="case-summary">
+            Kompletní vizuální identita pro reálný komerční projekt zaměřený na tvorbu webů pro malé podnikatele a&nbsp;OSVČ. Od loga přes typografii až po pravidla použití – nasazeno na živém webu.
+          </p>
+          <div class="case-detail">
+            <div class="case-detail-inner">
+              <h4>Kontext</h4>
+              <p>Rodinný projekt zapniweb.cz potřeboval ucelenou vizuální identitu. Cílová skupina jsou OSVČ, řemeslníci a&nbsp;malí podnikatelé, kteří chtějí profesionální web.</p>
+              <h4>Co jsem udělala</h4>
+              <ul>
+                <li>Navrhla kompletní vizuální identitu od nuly</li>
+                <li>Vytvořila brandbook: logo, typografie, barevná paleta, grafické elementy, pravidla použití</li>
+                <li>Pracovala v Adobe Illustrator a InDesign</li>
+                <li>Spolupracovala s manželem (IT konzultant) na design–development handoff</li>
+              </ul>
+              <h4>Výsledek</h4>
+              <p>Systematický designový dokument nasazený na živém projektu. Ne školní cvičení, ale reálná identita pro reálnou službu.</p>
+              <div class="relevance-box">
+                <p>Relevance pro DIS: Návrh informační služby od značky po výstup, reálný uživatel, spolupráce v týmu, systematický přístup k&nbsp;designu.</p>
+              </div>
+              <div class="case-tags">
+                <span class="case-tag">Adobe Illustrator</span>
+                <span class="case-tag">InDesign</span>
+                <span class="case-tag">Vizuální identita</span>
+                <span class="case-tag">Brandbook</span>
+                <span class="case-tag">Reálný projekt</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE 2: Call centrum -->
+        <article class="case-card fade-in">
+          <div class="case-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="case-header-content">
+              <span class="case-badge">Service design</span>
+              <h3 class="case-title">Nastavení procesů call centra</h3>
+              <p class="case-meta">Swiss Life Select · 2017–2018</p>
+            </div>
+            <div class="case-toggle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+            </div>
+          </div>
+          <p class="case-summary">
+            Identifikace selhávajících komunikačních procesů v&nbsp;call centru, návrh standardizovaného postupu a&nbsp;školení operátorů – service design v&nbsp;praxi.
+          </p>
+          <div class="case-detail">
+            <div class="case-detail-inner">
+              <h4>Kontext</h4>
+              <p>Call centrum mělo nejednotnou komunikaci s&nbsp;klienty. Operátoři neměli jasný postup, zákazníci se opakovaně ptali na stejné věci a&nbsp;chyby v komunikaci eskalovaly.</p>
+              <h4>Co jsem udělala</h4>
+              <ul>
+                <li>Zmapovala opakující se situace a identifikovala klíčové body selhání</li>
+                <li>Navrhla a zavedla standardizovaný komunikační proces (Day after call)</li>
+                <li>Vytvořila školicí materiály a proškolila operátory</li>
+                <li>Onboardovala nové kolegy samostatně</li>
+              </ul>
+              <h4>Výsledek</h4>
+              <p>Snížení chybovosti v&nbsp;komunikaci a&nbsp;sjednocení zákaznické zkušenosti napříč celým týmem.</p>
+              <div class="relevance-box">
+                <p>Relevance pro DIS: Identifikace problému → návrh řešení → implementace → předání = designový proces v&nbsp;praxi.</p>
+              </div>
+              <div class="case-tags">
+                <span class="case-tag">Procesní optimalizace</span>
+                <span class="case-tag">Školení</span>
+                <span class="case-tag">Komunikace</span>
+                <span class="case-tag">Service design</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE 3: HTML šablony -->
+        <article class="case-card fade-in">
+          <div class="case-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="case-header-content">
+              <span class="case-badge">Web development</span>
+              <h3 class="case-title">HTML šablony pro Pneumatiky.cz</h3>
+              <p class="case-meta">Osobní projekt · 2023–2024</p>
+            </div>
+            <div class="case-toggle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+            </div>
+          </div>
+          <p class="case-summary">
+            Tvorba responzivních HTML/CSS šablon pro články a&nbsp;landing page e-shopu, vkládání do redakčního systému a&nbsp;ověřování zobrazení na různých zařízeních.
+          </p>
+          <div class="case-detail">
+            <div class="case-detail-inner">
+              <h4>Kontext</h4>
+              <p>E-shop Pneumatiky.cz potřeboval šablony pro redakční články a landing page. Šablony musely být responzivní a vkládatelné do CMS (PDP).</p>
+              <h4>Co jsem udělala</h4>
+              <ul>
+                <li>Naučila se HTML/CSS strukturu (ITnetwork, praxe s manželem – IT konzultantem)</li>
+                <li>Vytvořila šablony pro různé typy obsahu</li>
+                <li>Vkládala hotový obsah do redakčního systému a ověřovala zobrazení</li>
+              </ul>
+              <h4>Výsledek</h4>
+              <p>Fungující šablony nasazené v&nbsp;produkci. Získaná praxe s&nbsp;CMS, Chrome DevTools a&nbsp;strukturou webových stránek.</p>
+              <div class="relevance-box">
+                <p>Relevance pro DIS: Přechod od konceptu k&nbsp;technické realizaci; porozumění, jak design ovlivňuje implementaci.</p>
+              </div>
+              <div class="case-tags">
+                <span class="case-tag">HTML</span>
+                <span class="case-tag">CSS</span>
+                <span class="case-tag">CMS</span>
+                <span class="case-tag">Chrome DevTools</span>
+                <span class="case-tag">Responzivní design</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- CASE 4: User testing -->
+        <article class="case-card fade-in">
+          <div class="case-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="case-header-content">
+              <span class="case-badge">UX testing</span>
+              <h3 class="case-title">Uživatelské testování interních systémů</h3>
+              <p class="case-meta">OVB Allfinanz · 2019–2024</p>
+            </div>
+            <div class="case-toggle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+            </div>
+          </div>
+          <p class="case-summary">
+            Provádění uživatelských testů interních systémů z&nbsp;pozice každodenního uživatele, reportování chyb a&nbsp;nelogických rozhraní vývojovému týmu.
+          </p>
+          <div class="case-detail">
+            <div class="case-detail-inner">
+              <h4>Kontext</h4>
+              <p>Interní systémy OVB Allfinanz procházely vývojem; bylo potřeba ověřit, zda jsou pro uživatele použitelné.</p>
+              <h4>Co jsem udělala</h4>
+              <ul>
+                <li>Prováděla uživatelské testy z pozice každodenního uživatele systémů</li>
+                <li>Reportovala nalezené chyby a nelogická rozhraní vývojovému týmu</li>
+                <li>Průřezová znalost procesů umožňovala hodnotit systém komplexně</li>
+                <li>Datová analýza v rámci týmu</li>
+              </ul>
+              <h4>Výsledek</h4>
+              <p>Systematická zpětná vazba vývojovému týmu vedoucí ke zlepšení použitelnosti interních nástrojů.</p>
+              <div class="relevance-box">
+                <p>Relevance pro DIS: User testing je klíčová kompetence UX. Tuto práci jsem vykonávala přirozeně, bez formálního vzdělání v&nbsp;oboru.</p>
+              </div>
+              <div class="case-tags">
+                <span class="case-tag">Uživatelské testování</span>
+                <span class="case-tag">Bug reporting</span>
+                <span class="case-tag">Datová analýza</span>
+                <span class="case-tag">Interní systémy</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VZDĚLÁNÍ -->
+  <section class="section section-alt" id="education">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Vzdělání a kurzy</p>
+        <h2 class="section-title">Neustálý růst</h2>
+        <p class="section-intro">
+          Aktivní rekvalifikace a&nbsp;sebevzdělávání – každou novou dovednost okamžitě ověřuji v&nbsp;praxi.
+        </p>
+      </div>
+
+      <div class="timeline fade-in">
+
+        <div class="timeline-item current">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">2026</p>
+          <h3 class="timeline-title">
+            Nakóduj svůj první web – HTML a&nbsp;CSS
+            <span class="status-badge active">Probíhá</span>
+          </h3>
+          <p class="timeline-place">Czechitas · 35 hodin + 10 h domácí úkoly · 10 týdnů</p>
+          <p class="timeline-desc">VS Code, Emmet, Chrome DevTools, GitHub, Flexbox, CSS proměnné, responzivní design, formuláře, SVG.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">2025–2026</p>
+          <h3 class="timeline-title">
+            Úvod do tvorby webu – HTML a&nbsp;CSS
+            <span class="status-badge done">Dokončeno</span>
+          </h3>
+          <p class="timeline-place">Czechitas · samostudium · 4 hodiny, 9 videolekcí</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">2023–2024</p>
+          <h3 class="timeline-title">
+            HTML/CSS kurz
+            <span class="status-badge done">Dokončeno</span>
+          </h3>
+          <p class="timeline-place">ITnetwork</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">2024</p>
+          <h3 class="timeline-title">
+            Rekvalifikační kurz grafiky – Adobe CC
+            <span class="status-badge done">Dokončeno</span>
+          </h3>
+          <p class="timeline-place">Art Grafik · 8 měsíců · od listopadu 2024</p>
+          <p class="timeline-desc">Adobe Photoshop, InDesign, Illustrator. Závěrečný projekt: brandbook pro zapniweb.cz.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">—</p>
+          <h3 class="timeline-title">
+            Rekvalifikace – účetnictví
+            <span class="status-badge done">Dokončeno</span>
+          </h3>
+          <p class="timeline-place">Akreditace MŠMT · přes Provident Financial</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">2005–2010</p>
+          <h3 class="timeline-title">
+            Středoškolské vzdělání s&nbsp;maturitou
+            <span class="status-badge done">Dokončeno</span>
+          </h3>
+          <p class="timeline-place">SŠ gastronomie a služeb, Přerov</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NÁSTROJE -->
+  <section class="section" id="tools">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Dovednosti</p>
+        <h2 class="section-title">Nástroje, které používám</h2>
+        <p class="section-intro">
+          Od designových nástrojů přes webové technologie až po systémy, se kterými pracuji každý den.
+        </p>
+      </div>
+
+      <div class="tools-grid fade-in">
+
+        <div class="tool-category">
+          <div class="tool-category-icon">
+            <svg viewBox="0 0 24 24"><path d="M20.71 4.63l-1.34-1.34a1 1 0 0 0-1.41 0L9 12.25 11.75 15l8.96-8.96a1 1 0 0 0 0-1.41zM7 14a3 3 0 0 0-3 3c0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2a4 4 0 0 0 4-4 3 3 0 0 0-3-3z"/></svg>
+          </div>
+          <h3>Design</h3>
+          <div class="tool-pills">
+            <span class="tool-pill">Figma</span>
+            <span class="tool-pill">Adobe Illustrator</span>
+            <span class="tool-pill">Photoshop</span>
+            <span class="tool-pill">InDesign</span>
+          </div>
+        </div>
+
+        <div class="tool-category">
+          <div class="tool-category-icon">
+            <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          </div>
+          <h3>Web</h3>
+          <div class="tool-pills">
+            <span class="tool-pill">HTML</span>
+            <span class="tool-pill">CSS</span>
+            <span class="tool-pill">VS Code</span>
+            <span class="tool-pill">Cursor</span>
+            <span class="tool-pill">GitHub</span>
+            <span class="tool-pill">Chrome DevTools</span>
+          </div>
+        </div>
+
+        <div class="tool-category">
+          <div class="tool-category-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"/></svg>
+          </div>
+          <h3>Systémy a&nbsp;data</h3>
+          <div class="tool-pills">
+            <span class="tool-pill">CRM systémy</span>
+            <span class="tool-pill">Webdac</span>
+            <span class="tool-pill">East management</span>
+            <span class="tool-pill">PDP (CMS)</span>
+          </div>
+        </div>
+
+        <div class="tool-category">
+          <div class="tool-category-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <h3>AI</h3>
+          <div class="tool-pills">
+            <span class="tool-pill">ChatGPT</span>
+            <span class="tool-pill">Cursor</span>
+            <span class="tool-pill">AI modely</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="section section-alt contact-section" id="contact">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">Kontakt</p>
+        <h2 class="section-title">Pojďme se spojit</h2>
+        <p class="section-intro">
+          Ráda se představím osobně. Pokud máte dotazy k&nbsp;mému portfoliu nebo si chcete domluvit setkání, neváhejte mě kontaktovat.
+        </p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/andrea-drdlickova-damaskova-a36621282/" class="contact-link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:andrea.damaskova@gmail.com" class="contact-link">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            E-mail
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Andrea Drdlíčková Damašková · Portfolio pro přihlášku na DIS MUNI FF</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.querySelector('.nav');
+      var hamburger = document.querySelector('.hamburger');
+      var navLinks = document.querySelector('.nav-links');
+      var overlay = document.querySelector('.mobile-overlay');
+      var links = document.querySelectorAll('.nav-links a');
+
+      function toggleMenu() {
+        var isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        overlay.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      }
+
+      function closeMenu() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
+        overlay.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', closeMenu);
+
+      links.forEach(function (link) {
+        link.addEventListener('click', closeMenu);
+      });
+
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('scrolled', window.scrollY > 10);
+      }, { passive: true });
+
+      var sections = document.querySelectorAll('section[id]');
+
+      function updateActiveLink() {
+        var scrollPos = window.scrollY + 120;
+        sections.forEach(function (section) {
+          var top = section.offsetTop;
+          var height = section.offsetHeight;
+          var id = section.getAttribute('id');
+          var link = document.querySelector('.nav-links a[href="#' + id + '"]');
+          if (link) {
+            link.classList.toggle('active', scrollPos >= top && scrollPos < top + height);
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveLink, { passive: true });
+      updateActiveLink();
+
+      var caseHeaders = document.querySelectorAll('.case-header');
+
+      caseHeaders.forEach(function (header) {
+        header.addEventListener('click', function () {
+          var card = header.closest('.case-card');
+          var detail = card.querySelector('.case-detail');
+          var isExpanded = card.classList.contains('expanded');
+
+          if (isExpanded) {
+            detail.style.maxHeight = '0';
+            card.classList.remove('expanded');
+            header.setAttribute('aria-expanded', 'false');
+          } else {
+            detail.style.maxHeight = detail.scrollHeight + 'px';
+            card.classList.add('expanded');
+            header.setAttribute('aria-expanded', 'true');
+          }
+        });
+
+        header.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            header.click();
+          }
+        });
+      });
+
+      var fadeElements = document.querySelectorAll('.fade-in');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        fadeElements.forEach(function (el) {
+          observer.observe(el);
+        });
+      } else {
+        fadeElements.forEach(function (el) {
+          el.classList.add('visible');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
